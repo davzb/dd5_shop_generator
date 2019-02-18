@@ -90,11 +90,14 @@
                         </tr>
                         <tr>
                             <td class="has-background-grey-lighter">Rare</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>
+                                Elixir of Health <span class="has-text-grey">- Potion</span><br>
+                                <span class="is-size-7">Lorsque vous buvez cette potion, elle guérit de toute maladie qui vous afflige, et supprime les conditions aveuglé, assourdi, paralysé et empoisonné. Le liquide rouge clair possède de minuscules bulles de lumière.</span>
+                            </td>
+                            <td>1</td>
+                            <td>500 pa</td>
+                            <td>575 pa</td>
+                            <td>685 pa</td>
                         </tr>
                         <tr>
                             <td class="has-background-warning">Unique</td>
