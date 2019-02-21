@@ -3,9 +3,7 @@
         <section class="hero is-warning is-bold">
             <div class="hero-body">
                 <div class="container">
-                    <h1 class="title">
-                        White Bear Shop
-                    </h1>
+                    <h1 class="title" v-html="$store.state.staticData.title"></h1>
                     <p class="subtitle">
                         Welcome traveler!<br>
                         I am <strong>Wiggens Raulnor</strong>, you are in my humble shop, in exchange of gold you can buy:
@@ -115,11 +113,18 @@
 </template>
 
 <script>
+import yamljs from "yamljs";
+import $ from "jquery";
+
 export default {
   name: "app",
   data() {
-    return {
-    };
+        return {
+            staticData: this.$store.state.staticData
+        }
+  },
+  props: {
+    title: { type: Object, default: null }
   }
 };
 </script>
