@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+    <div id="app">
         <section class="hero is-warning is-bold">
             <div class="hero-body">
                 <div class="container">
-                    <h1 class="title" v-html="$store.state.staticData.title"></h1>
+                    <h1 class="title">{{ $t('title') }}</h1>
                     <p class="subtitle">
                         Welcome traveler!<br>
                         I am <strong>Wiggens Raulnor</strong>, you are in my humble shop, in exchange of gold you can buy:
@@ -109,22 +109,23 @@
                 </table>
             </div>
         </section>
-  </div>
+    </div>
 </template>
 
 <script>
-import yamljs from "yamljs";
 import $ from "jquery";
 
 export default {
   name: "app",
   data() {
         return {
-            staticData: this.$store.state.staticData
+            locale: 'en'
         }
   },
-  props: {
-    title: { type: Object, default: null }
+  watch: {
+    locale (val) {
+        this.$i18n.locale = val
+    }
   }
 };
 </script>
@@ -142,3 +143,10 @@ export default {
         }
     }
 </style>
+
+<i18n>
+en:
+    title: White Bear Shop
+fr:
+    title: La boutique de l'Ours Blanc
+</i18n>

@@ -4,13 +4,14 @@
   "description": "Shop generator for Dungeons & Dragons 5",
   "repository": "https://github.com/davzb/dd5_shop_generator",
   "scripts": {
-    "serve": "vue-cli-service serve --open",
+    "serve": "npm run build && vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "author": "David Bernard",
   "license": "ISC",
   "dependencies": {
+    "@kazupon/vue-i18n-loader": "^0.3.0",
     "@vue/cli": "^3.4.0",
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-plugin-eslint": "^3.4.0",
@@ -21,8 +22,10 @@
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.5.0",
+    "vue-i18n": "^8.8.2",
+    "vue-loader": "^15.6.4",
     "vue-router": "^3.0.2",
     "vuex": "^3.1.0",
-    "yamljs": "^0.3.0"
+    "yaml-loader": "^0.5.0"
   }
 }
