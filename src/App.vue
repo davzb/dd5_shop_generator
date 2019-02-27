@@ -4,10 +4,7 @@
             <div class="hero-body">
                 <div class="container">
                     <h1 class="title">{{ $t('title') }}</h1>
-                    <p class="subtitle">
-                        Welcome traveler!<br>
-                        I am <strong>Wiggens Raulnor</strong>, you are in my humble shop, in exchange of gold you can buy:
-                    </p>
+                    <p class="subtitle" v-html="$t('descr')"></p>
                 </div>
             </div>
         </section>
@@ -17,19 +14,19 @@
                 <div class="columns">
                     <div class="column is-one-third">
                         <div class="field">
-                            <label><strong>Size of the shop</strong></label>
+                            <label><strong>{{ $t('shopSize') }}</strong></label>
                             <div class="control">
                                 <label class="radio">
                                     <input type="radio" name="shopSize" data-value="10">
-                                    Small
+                                    {{ $t('sm') }}
                                 </label>
                                 <label class="radio">
                                     <input type="radio" name="shopSize" data-value="20" checked>
-                                    Normal
+                                    {{ $t('md') }}
                                 </label>
                                 <label class="radio">
                                     <input type="radio" name="shopSize" data-value="30">
-                                    Huge
+                                    {{ $t('lg') }}
                                 </label>
                             </div>
                         </div>
@@ -40,7 +37,7 @@
                     <div class="column is-one-third">
                         <div class="field">
                             <div class="control">
-                                <label><strong>Average Level</strong></label>
+                                <label><strong>{{ $t('lvl') }}</strong></label>
                                 <input class="input" type="number" placeholder="Average Level" value="1">
                             </div>
                         </div>
@@ -49,7 +46,7 @@
                     <div class="column is-one-third">
                         <div class="field">
                             <div class="control">
-                                <label><strong>Number of items</strong></label>
+                                <label><strong>{{ $t('nbItems') }}</strong></label>
                                 <input class="input" type="number" placeholder="Number of items" value="20">
                             </div>
                         </div>
@@ -58,7 +55,7 @@
 
                 <div class="field">
                     <div class="control">
-                        <input class="button is-dark is-rounded" type="submit" value="Generate">
+                        <input class="button is-dark is-rounded" type="submit" :value="$t('submit')">
                     </div>
                 </div>
             </div>
@@ -69,12 +66,12 @@
                 <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
                     <thead>
                         <tr>
-                            <th class="is-1 is-size-7 is-uppercase">Category</th>
-                            <th class="is-7 is-size-7 is-uppercase has-text-left">Name</th>
-                            <th class="is-1 is-size-7 is-uppercase">Qty</th>
-                            <th class="is-1 is-size-7 is-uppercase">Lower Price</th>
-                            <th class="is-1 is-size-7 is-uppercase">Medium Price</th>
-                            <th class="is-1 is-size-7 is-uppercase">Higher Price</th>
+                            <th class="is-1 is-size-7 is-uppercase">{{ $t('colA') }}</th>
+                            <th class="is-7 is-size-7 is-uppercase has-text-left">{{ $t('colB') }}</th>
+                            <th class="is-1 is-size-7 is-uppercase">{{ $t('colC') }}</th>
+                            <th class="is-1 is-size-7 is-uppercase">{{ $t('colD') }}</th>
+                            <th class="is-1 is-size-7 is-uppercase">{{ $t('colE') }}</th>
+                            <th class="is-1 is-size-7 is-uppercase">{{ $t('colF') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -109,24 +106,31 @@
                 </table>
             </div>
         </section>
+
+        {{ info }}
     </div>
 </template>
 
 <script>
 import $ from "jquery";
+import axios from "axios";
 
 export default {
-  name: "app",
-  data() {
+    name: "app",
+    data () {
         return {
-            locale: 'en'
+            info: null
         }
-  },
-  watch: {
-    locale (val) {
-        this.$i18n.locale = val
+    },
+    mounted () {
+        const currentLang = $('html').attr('lang');
+
+        if (!currentLang) {
+            this.$i18n.locale = "en"
+        } else {
+            this.$i18n.locale = currentLang
+        }
     }
-  }
 };
 </script>
 
@@ -146,7 +150,35 @@ export default {
 
 <i18n>
 en:
-    title: White Bear Shop
+    title: "White Bear Shop"
+    descr: "Welcome traveler!<br>I am <strong>Wiggens Raulnor</strong>, you are in my humble shop, in exchange of gold you can buy:"
+    shopSize: "Size of the shop"
+    sm: "Small"
+    md: "Medium"
+    lg: "Huge"
+    lvl: "Average Level"
+    nbItems: "Number of items"
+    submit: "Generate"
+    colA: "Category"
+    colB: "Name"
+    colC: "Qty"
+    colD: "- Price"
+    colE: "Price"
+    colF: "+ Price"
 fr:
-    title: La boutique de l'Ours Blanc
+    title: "La boutique de l'Ours Blanc"
+    descr: "Bienvenue aventuriers !<br>Je suis <strong>Wiggens Raulnor</strong>, vous êtes dans ma modeste échoppe, contre votre or vous pouvez acheter :"
+    shopSize: "Taille de la boutique"
+    sm: "Petite"
+    md: "Moyenne"
+    lg: "Enorme"
+    lvl: "Moyenne des niveaux"
+    nbItems: "Nombre d'articles"
+    submit: "Générer"
+    colA: "Catégorie"
+    colB: "Nom"
+    colC: "Qté"
+    colD: "Prix -"
+    colE: "Prix"
+    colF: "Prix +"
 </i18n>

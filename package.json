@@ -16,6 +16,7 @@
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-plugin-eslint": "^3.4.0",
     "@vue/cli-service-global": "^3.4.0",
+    "axios": "^0.18.0",
     "babel-loader": "^8.0.5",
     "buefy": "^0.7.2",
     "jquery": "^3.3.1",
