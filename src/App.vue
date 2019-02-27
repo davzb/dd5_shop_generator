@@ -47,7 +47,7 @@
                         <div class="field">
                             <div class="control">
                                 <label><strong>{{ $t('nbItems') }}</strong></label>
-                                <input class="input" type="number" placeholder="Number of items" value="20">
+                                <input class="input" id="itemsNbValue" type="number" placeholder="Number of items" value="3">
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,10 @@
 
                 <div class="field">
                     <div class="control">
-                        <input class="button is-dark is-rounded" type="submit" :value="$t('submit')">
+                        <input class="button is-dark is-rounded" 
+                               type="submit" 
+                               :value="$t('submit')" 
+                               @click="randomizeMe()">
                     </div>
                 </div>
             </div>
@@ -113,7 +116,11 @@
 
 <script>
 import $ from "jquery";
+import {_} from 'vue-underscore';
 import axios from "axios";
+import allItems from "../public/items.json";
+
+var items = [];
 
 export default {
     name: "app",
@@ -122,6 +129,9 @@ export default {
             info: null
         }
     },
+    beforeMount () {
+        items.push(allItems);
+    },
     mounted () {
         const currentLang = $('html').attr('lang');
 
@@ -129,6 +139,23 @@ export default {
             this.$i18n.locale = "en"
         } else {
             this.$i18n.locale = currentLang
+        }
+    },
+    methods: {
+        randomizeMe () {
+            let giveMeItemsVal = $('#itemsNbValue').val();
+            let index;
+            let results = [];
+
+            _.shuffle(items[0]);
+
+            for (index = 0; index < giveMeItemsVal; index++) {
+                results.push(items[0][index]);
+
+                if (index === ( giveMeItemsVal - 1 )) {
+                    console.log(results);
+                }
+            }
         }
     }
 };
