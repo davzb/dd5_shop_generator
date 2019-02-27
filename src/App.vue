@@ -17,15 +17,15 @@
                             <label><strong>{{ $t('shopSize') }}</strong></label>
                             <div class="control">
                                 <label class="radio">
-                                    <input type="radio" name="shopSize" data-value="10">
+                                    <input type="radio" name="shopSize" data-value="10" data-size="sm">
                                     {{ $t('sm') }}
                                 </label>
                                 <label class="radio">
-                                    <input type="radio" name="shopSize" data-value="20" checked>
+                                    <input type="radio" name="shopSize" data-value="20" data-size="md" checked>
                                     {{ $t('md') }}
                                 </label>
                                 <label class="radio">
-                                    <input type="radio" name="shopSize" data-value="30">
+                                    <input type="radio" name="shopSize" data-value="30" data-size="lg">
                                     {{ $t('lg') }}
                                 </label>
                             </div>
@@ -47,7 +47,11 @@
                         <div class="field">
                             <div class="control">
                                 <label><strong>{{ $t('nbItems') }}</strong></label>
-                                <input class="input" id="itemsNbValue" type="number" placeholder="Number of items" value="3">
+                                <input class="input" 
+                                       id="itemsNbValue" 
+                                       type="number" 
+                                       placeholder="Number of items" 
+                                       value="3">
                             </div>
                         </div>
                     </div>
@@ -58,7 +62,8 @@
                         <input class="button is-dark is-rounded" 
                                type="submit" 
                                :value="$t('submit')" 
-                               @click="randomizeMe()">
+                               @click="randomizeMe()"
+                               :model="generate">
                     </div>
                 </div>
             </div>
@@ -66,7 +71,7 @@
 
         <section class="section">
             <div class="container">
-                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" v-if="results">
                     <thead>
                         <tr>
                             <th class="is-1 is-size-7 is-uppercase">{{ $t('colA') }}</th>
@@ -78,32 +83,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Common</td>
-                            <td class="has-text-left">Iron Arrows</td>
-                            <td>20</td>
-                            <td>8 pc</td>
-                            <td>10 pc</td>
-                            <td>14 pc</td>
-                        </tr>
-                        <tr>
-                            <td class="has-background-grey-lighter">Rare</td>
-                            <td class="has-text-left">
-                                Elixir of Health <span class="has-text-grey is-italic">- Potion</span><br>
-                                <span class="is-size-7">Lorsque vous buvez cette potion, elle guérit de toute maladie qui vous afflige, et supprime les conditions aveuglé, assourdi, paralysé et empoisonné. Le liquide rouge clair possède de minuscules bulles de lumière.</span>
-                            </td>
-                            <td>1</td>
-                            <td>500 pa</td>
-                            <td>575 pa</td>
-                            <td>685 pa</td>
-                        </tr>
-                        <tr>
-                            <td class="has-background-warning">Unique</td>
-                            <td class="has-text-left"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                        <tr v-for="result in results" :key="result.id">
+                            <td>Categ</td>
+                            <td class="has-text-left">{{ result.name }}</td>
+                            <td>{{ result.qty }}</td>
+                            <td>{{ Math.floor(result.price * 0.6) }} {{ result.currency }}</td>
+                            <td>{{ result.price }} {{ result.currency }}</td>
+                            <td>{{ Math.round(result.price * 1.5) }} {{ result.currency }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -118,19 +104,33 @@
 import $ from "jquery";
 import {_} from 'vue-underscore';
 import axios from "axios";
-import allItems from "../public/items.json";
+import allArmes from "../public/armes.json";
+import allBabioles from "../public/babioles.json";
+import allEquipements from "../public/equipements.json";
+import allMarchandises from "../public/marchandises.json";
+import allOutils from "../public/outils.json";
 
-var items = [];
+var armes = [];
+var babioles = [];
+var equipements = [];
+var marchandises = [];
+var outils = [];
 
 export default {
     name: "app",
     data () {
         return {
-            info: null
+            generate: null,
+            info: null,
+            results: []
         }
     },
     beforeMount () {
-        items.push(allItems);
+        armes.push(allArmes);
+        babioles.push(allBabioles);
+        equipements.push(allEquipements);
+        marchandises.push(allMarchandises);
+        outils.push(allOutils);
     },
     mounted () {
         const currentLang = $('html').attr('lang');
@@ -141,20 +141,75 @@ export default {
             this.$i18n.locale = currentLang
         }
     },
+    watch : {
+        generate : function () {
+            this.randomizeMe();
+        }
+    },
     methods: {
         randomizeMe () {
+            let checkedShopSize = $('.radio input:checked').data('size');
             let giveMeItemsVal = $('#itemsNbValue').val();
-            let index;
-            let results = [];
+            let armesPercent, babiolesPercent, equipementsPercent, marchandisesPercent, outilsPercent;
+            let resultsArmes, resultsBabioles, resultsEquipements, resultsMarchandises, resultsOutils;
 
-            _.shuffle(items[0]);
+            switch (checkedShopSize) {
+                case 'sm' :
+                armesPercent = 0;
+                outilsPercent = 0;
+                babiolesPercent = Math.round(giveMeItemsVal * 0.2);
+                equipementsPercent = Math.round(giveMeItemsVal * 0.4);
+                marchandisesPercent = Math.floor(giveMeItemsVal * 0.4);
 
-            for (index = 0; index < giveMeItemsVal; index++) {
-                results.push(items[0][index]);
+                resultsBabioles = _.sample(babioles[0], babiolesPercent);
+                resultsEquipements = _.sample(equipements[0], equipementsPercent);
+                resultsMarchandises = _.sample(marchandises[0], marchandisesPercent);
 
-                if (index === ( giveMeItemsVal - 1 )) {
-                    console.log(results);
-                }
+                this.$data.results = _.union(resultsBabioles, 
+                                  resultsEquipements, 
+                                  resultsMarchandises);
+                this.$data.results = _.shuffle(this.$data.results);
+                break
+
+                case 'md' :
+                armesPercent = Math.round(giveMeItemsVal * 0.2);
+                outilsPercent = Math.round(giveMeItemsVal * 0.1);
+                babiolesPercent = Math.round(giveMeItemsVal * 0.1);
+                equipementsPercent = Math.round(giveMeItemsVal * 0.3);
+                marchandisesPercent = Math.floor(giveMeItemsVal * 0.4);
+
+                resultsArmes = _.sample(armes[0], armesPercent);
+                resultsOutils = _.sample(outils[0], outilsPercent);
+                resultsBabioles = _.sample(babioles[0], babiolesPercent);
+                resultsEquipements = _.sample(equipements[0], equipementsPercent);
+                resultsMarchandises = _.sample(marchandises[0], marchandisesPercent);
+
+                this.$data.results = _.union(resultsArmes, 
+                                  resultsOutils, 
+                                  resultsBabioles, 
+                                  resultsEquipements, 
+                                  resultsMarchandises);
+                this.$data.results = _.shuffle(this.$data.results);
+                break
+
+                case 'lg' :
+                armesPercent = Math.round(giveMeItemsVal * 0.3);
+                outilsPercent = Math.round(giveMeItemsVal * 0.2);
+                babiolesPercent = 0;
+                equipementsPercent = Math.round(giveMeItemsVal * 0.3);
+                marchandisesPercent = Math.floor(giveMeItemsVal * 0.2);
+
+                resultsArmes = _.sample(armes[0], armesPercent);
+                resultsOutils = _.sample(outils[0], outilsPercent);
+                resultsEquipements = _.sample(equipements[0], equipementsPercent);
+                resultsMarchandises = _.sample(marchandises[0], marchandisesPercent);
+
+                this.$data.results = _.union(resultsArmes, 
+                                  resultsOutils, 
+                                  resultsEquipements, 
+                                  resultsMarchandises);
+                this.$data.results = _.shuffle(this.$data.results);
+                break
             }
         }
     }

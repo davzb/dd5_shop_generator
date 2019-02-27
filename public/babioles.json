@@ -1,0 +1,44 @@
+[
+    {
+        "id": "bab1",
+        "name" : "Une main de gobelin momifiée",
+        "qty" : "1",
+        "price" : 20,
+        "currency" : "pc"
+    },
+    {
+        "id": "bab2",
+        "name" : "Un éclat de cristal qui luit faiblement sous les rayons de la lune",
+        "qty" : "1",
+        "price" : 30,
+        "currency" : "pc"
+    },
+    {
+        "id": "bab3",
+        "name" : "Une pièce d'or frappée dans un pays inconnu",
+        "qty" : "1",
+        "price" : 1,
+        "currency" : "po"
+    },
+    {
+        "id": "bab4",
+        "name" : "Un journal écrit dans une langue que vous ne connaissez pas",
+        "qty" : "1",
+        "price" : 15,
+        "currency" : "pc"
+    },
+    {
+        "id": "bab5",
+        "name" : "Une bague en cuivre qui ne verdit jamais",
+        "qty" : "1",
+        "price" : 100,
+        "currency" : "pc"
+    },
+    {
+        "id": "bab6",
+        "name" : "Une vielle pièce d'échec en verre",
+        "qty" : "1",
+        "price" : 10,
+        "currency" : "pc"
+    }
+]

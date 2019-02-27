@@ -1,0 +1,23 @@
+[
+    {
+        "id": "arm1",
+        "name" : "Bâton",
+        "qty" : "1",
+        "price" :  2,
+        "currency" : "pa"
+    },
+    {
+        "id": "arm2",
+        "name" : "Dague",
+        "qty" : "1",
+        "price" : 2,
+        "currency" : "po"
+    },
+    {
+        "id": "arm3",
+        "name" : "Gourdin",
+        "qty" : "1",
+        "price" : 1,
+        "currency" : "pa"
+    }
+]

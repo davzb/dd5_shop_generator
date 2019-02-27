@@ -1,0 +1,44 @@
+[
+    {
+        "id": "mar1",
+        "name" : "Blé",
+        "qty" : "3 kg",
+        "price" :  6,
+        "currency" : "pc"
+    },
+    {
+        "id": "mar2",
+        "name" : "Farine",
+        "qty" : "2 kg",
+        "price" : 8,
+        "currency" : "pc"
+    },
+    {
+        "id": "mar3",
+        "name" : "Sel",
+        "qty" : "1 kg",
+        "price" : 10,
+        "currency" : "pc"
+    },
+    {
+        "id": "mar4",
+        "name" : "Fer",
+        "qty" : "1",
+        "price" : 2,
+        "currency" : "pa"
+    },
+    {
+        "id": "mar5",
+        "name" : "Toile",
+        "qty" : "3 m2",
+        "price" : 3,
+        "currency" : "pa"
+    },
+    {
+        "id": "mar6",
+        "name" : "Cuivre",
+        "qty" : "4",
+        "price" : 40,
+        "currency" : "pa"
+    }
+]

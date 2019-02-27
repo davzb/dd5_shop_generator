@@ -1,0 +1,23 @@
+[
+    {
+        "id": "equ1",
+        "name" : "Acide (fiole)",
+        "qty" : "3",
+        "price" :  75,
+        "currency" : "po"
+    },
+    {
+        "id": "equ2",
+        "name" : "Antitoxine (fiole)",
+        "qty" : "1",
+        "price" : 50,
+        "currency" : "po"
+    },
+    {
+        "id": "equ3",
+        "name" : "Balance de marchand",
+        "qty" : "1",
+        "price" : 5,
+        "currency" : "po"
+    }
+]
