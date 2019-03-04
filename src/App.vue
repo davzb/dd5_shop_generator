@@ -17,15 +17,15 @@
                             <label><strong>{{ $t('shopSize') }}</strong></label>
                             <div class="control">
                                 <label class="radio">
-                                    <input type="radio" name="shopSize" data-value="10" data-size="sm">
+                                    <input type="radio" name="shopSize" data-size="sm" checked>
                                     {{ $t('sm') }}
                                 </label>
                                 <label class="radio">
-                                    <input type="radio" name="shopSize" data-value="20" data-size="md" checked>
+                                    <input type="radio" name="shopSize" data-size="md">
                                     {{ $t('md') }}
                                 </label>
                                 <label class="radio">
-                                    <input type="radio" name="shopSize" data-value="30" data-size="lg">
+                                    <input type="radio" name="shopSize" data-size="lg">
                                     {{ $t('lg') }}
                                 </label>
                             </div>
@@ -38,7 +38,7 @@
                         <div class="field">
                             <div class="control">
                                 <label><strong>{{ $t('lvl') }}</strong></label>
-                                <input class="input" type="number" placeholder="Average Level" value="1">
+                                <input class="input" type="number" :placeholder="$t('lvl')" value="1">
                             </div>
                         </div>
                     </div>
@@ -50,8 +50,8 @@
                                 <input class="input" 
                                        id="itemsNbValue" 
                                        type="number" 
-                                       placeholder="Number of items" 
-                                       value="3">
+                                       :placeholder="$t('nbItems')" 
+                                       value="10">
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="result in results" :key="result.id">
-                            <td>Categ</td>
+                            <td>{{ result.id }}</td>
                             <td class="has-text-left">{{ result.name }}</td>
                             <td>{{ result.qty }}</td>
                             <td>{{ Math.floor(result.price * 0.6) }} {{ result.currency }}</td>
@@ -95,8 +95,6 @@
                 </table>
             </div>
         </section>
-
-        {{ info }}
     </div>
 </template>
 
