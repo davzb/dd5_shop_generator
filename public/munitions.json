@@ -1,0 +1,30 @@
+[
+    {
+        "id": "amm1",
+        "name" : "Billes de fronde",
+        "qty" : "90",
+        "price" : 12,
+        "currency" : "pc"
+    },
+    {
+        "id": "amm2",
+        "name" : "Carreaux d'arbalète",
+        "qty" : "40",
+        "price" : 2,
+        "currency" : "po"
+    },
+    {
+        "id": "amm3",
+        "name" : "Dards de sarbacane",
+        "qty" : "150",
+        "price" : 3,
+        "currency" : "po"
+    },
+    {
+        "id": "amm4",
+        "name" : "Flèches",
+        "qty" : "60",
+        "price" : 3,
+        "currency" : "po"
+    }
+]

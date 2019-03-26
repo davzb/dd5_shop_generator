@@ -19,5 +19,243 @@
         "qty" : "1",
         "price" : 1,
         "currency" : "pa"
+    },
+    {
+        "id": "arm4",
+        "name" : "Hachette",
+        "qty" : "2",
+        "price" : 10,
+        "currency" : "po"
+    },
+    {
+        "id": "arm5",
+        "name" : "Javeline",
+        "qty" : "4",
+        "price" : 20,
+        "currency" : "pa"
+    },
+    {
+        "id": "arm6",
+        "name" : "Lance",
+        "qty" : "1",
+        "price" : 1,
+        "currency" : "po"
+    },
+    {
+        "id": "arm7",
+        "name" : "Marteau léger",
+        "qty" : "3",
+        "price" : 6,
+        "currency" : "po"
+    },
+    {
+        "id": "arm8",
+        "name" : "Masse d'armes",
+        "qty" : "1",
+        "price" : 5,
+        "currency" : "po"
+    },
+    {
+        "id": "arm9",
+        "name" : "Massue",
+        "qty" : "1",
+        "price" : 2,
+        "currency" : "pa"
+    },
+    {
+        "id": "arm10",
+        "name" : "Serpe",
+        "qty" : "3",
+        "price" : 3,
+        "currency" : "po"
+    },
+    {
+        "id": "arm11",
+        "name" : "Arbalète légère",
+        "qty" : "2",
+        "price" : 50,
+        "currency" : "po"
+    },
+    {
+        "id": "arm12",
+        "name" : "Arc court",
+        "qty" : "5",
+        "price" : 125,
+        "currency" : "po"
+    },
+    {
+        "id": "arm13",
+        "name" : "Fléchettes",
+        "qty" : "12",
+        "price" : 60,
+        "currency" : "pc"
+    },
+    {
+        "id": "arm14",
+        "name" : "Fronde",
+        "qty" : "2",
+        "price" : 2,
+        "currency" : "pa"
+    },
+    {
+        "id": "arm15",
+        "name" : "Cimeterre",
+        "qty" : "1",
+        "price" : 25,
+        "currency" : "po"
+    },
+    {
+        "id": "arm16",
+        "name" : "Coutille",
+        "qty" : "1",
+        "price" : 20,
+        "currency" : "po"
+    },
+    {
+        "id": "arm17",
+        "name" : "Epée à deux mains",
+        "qty" : "1",
+        "price" : 50,
+        "currency" : "po"
+    },
+    {
+        "id": "arm18",
+        "name" : "Epée courte",
+        "qty" : "2",
+        "price" : 20,
+        "currency" : "po"
+    },
+    {
+        "id": "arm19",
+        "name" : "Epée longue",
+        "qty" : "1",
+        "price" : 15,
+        "currency" : "po"
+    },
+    {
+        "id": "arm20",
+        "name" : "Fléau",
+        "qty" : "1",
+        "price" : 10,
+        "currency" : "po"
+    },
+    {
+        "id": "arm21",
+        "name" : "Fouet",
+        "qty" : "2",
+        "price" : 4,
+        "currency" : "po"
+    },
+    {
+        "id": "arm22",
+        "name" : "Hache à deux mains",
+        "qty" : "1",
+        "price" : 30,
+        "currency" : "po"
+    },
+    {
+        "id": "arm23",
+        "name" : "Hache d'armes",
+        "qty" : "1",
+        "price" : 10,
+        "currency" : "po"
+    },
+    {
+        "id": "arm24",
+        "name" : "Hallebarde",
+        "qty" : "1",
+        "price" : 20,
+        "currency" : "po"
+    },
+    {
+        "id": "arm25",
+        "name" : "Lance d'arçon",
+        "qty" : "1",
+        "price" : 10,
+        "currency" : "po"
+    },
+    {
+        "id": "arm26",
+        "name" : "Maillet d'armes",
+        "qty" : "1",
+        "price" : 10,
+        "currency" : "po"
+    },
+    {
+        "id": "arm27",
+        "name" : "Marteau de guerre",
+        "qty" : "2",
+        "price" : 30,
+        "currency" : "po"
+    },
+    {
+        "id": "arm28",
+        "name" : "Morgenstern",
+        "qty" : "1",
+        "price" : 15,
+        "currency" : "po"
+    },
+    {
+        "id": "arm29",
+        "name" : "Pic de guerre",
+        "qty" : "1",
+        "price" : 5,
+        "currency" : "po"
+    },
+    {
+        "id": "arm30",
+        "name" : "Pique",
+        "qty" : "1",
+        "price" : 5,
+        "currency" : "po"
+    },
+    {
+        "id": "arm31",
+        "name" : "Rapière",
+        "qty" : "1",
+        "price" : 25,
+        "currency" : "po"
+    },
+    {
+        "id": "arm32",
+        "name" : "Trident",
+        "qty" : "1",
+        "price" : 5,
+        "currency" : "po"
+    },
+    {
+        "id": "arm33",
+        "name" : "Arbalète de poing",
+        "qty" : "1",
+        "price" : 75,
+        "currency" : "po"
+    },
+    {
+        "id": "arm34",
+        "name" : "Arbalète lourde",
+        "qty" : "1",
+        "price" : 50,
+        "currency" : "po"
+    },
+    {
+        "id": "arm35",
+        "name" : "Arc long",
+        "qty" : "2",
+        "price" : 100,
+        "currency" : "po"
+    },
+    {
+        "id": "arm36",
+        "name" : "Filet",
+        "qty" : "3",
+        "price" : 3,
+        "currency" : "po"
+    },
+    {
+        "id": "arm37",
+        "name" : "Sarbacane",
+        "qty" : "2",
+        "price" : 20,
+        "currency" : "po"
     }
 ]

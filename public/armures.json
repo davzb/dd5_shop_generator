@@ -1,0 +1,93 @@
+[
+    {
+        "id": "amr1",
+        "name" : "Armure légère matelassée",
+        "qty" : "1",
+        "price" :  5,
+        "currency" : "po"
+    },
+    {
+        "id": "amr2",
+        "name" : "Armure légère en cuir",
+        "qty" : "1",
+        "price" :  10,
+        "currency" : "po"
+    },
+    {
+        "id": "amr3",
+        "name" : "Armure légère en cuir clouté",
+        "qty" : "1",
+        "price" :  45,
+        "currency" : "po"
+    },
+    {
+        "id": "amr4",
+        "name" : "Armure intermédiaire en peau",
+        "qty" : "1",
+        "price" :  10,
+        "currency" : "po"
+    },
+    {
+        "id": "amr5",
+        "name" : "Chemise de mailles",
+        "qty" : "1",
+        "price" :  50,
+        "currency" : "po"
+    },
+    {
+        "id": "amr6",
+        "name" : "Armure intermédiaire en écailles",
+        "qty" : "1",
+        "price" :  50,
+        "currency" : "po"
+    },
+    {
+        "id": "amr7",
+        "name" : "Armure intermédiaire cuirasse",
+        "qty" : "1",
+        "price" :  400,
+        "currency" : "po"
+    },
+    {
+        "id": "amr8",
+        "name" : "Armure intermédiaire demi-plate",
+        "qty" : "1",
+        "price" :  750,
+        "currency" : "po"
+    },
+    {
+        "id": "amr9",
+        "name" : "Armure lourde broigne",
+        "qty" : "1",
+        "price" :  30,
+        "currency" : "po"
+    },
+    {
+        "id": "amr10",
+        "name" : "Cotte de mailles",
+        "qty" : "1",
+        "price" :  75,
+        "currency" : "po"
+    },
+    {
+        "id": "amr11",
+        "name" : "Armure lourde clibanion",
+        "qty" : "1",
+        "price" :  200,
+        "currency" : "po"
+    },
+    {
+        "id": "amr12",
+        "name" : "Armure lourde harnois",
+        "qty" : "1",
+        "price" :  1500,
+        "currency" : "po"
+    },
+    {
+        "id": "amr13",
+        "name" : "Bouclier",
+        "qty" : "1",
+        "price" :  10,
+        "currency" : "po"
+    }
+]

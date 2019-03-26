@@ -19,5 +19,145 @@
         "qty" : "1 kit",
         "price" : 5,
         "currency" : "po"
+    },
+    {
+        "id": "out4",
+        "name" : "Instruments de navigateur",
+        "qty" : "1 kit",
+        "price" : 25,
+        "currency" : "po"
+    },
+    {
+        "id": "out5",
+        "name" : "Matériel d'empoisonneur",
+        "qty" : "1 kit",
+        "price" : 50,
+        "currency" : "po"
+    },
+    {
+        "id": "out6",
+        "name" : "Matériel de contrefaçon",
+        "qty" : "1 kit",
+        "price" : 15,
+        "currency" : "po"
+    },
+    {
+        "id": "out7",
+        "name" : "Matériel de brasseur",
+        "qty" : "1 kit",
+        "price" : 20,
+        "currency" : "po"
+    },
+    {
+        "id": "out8",
+        "name" : "Matériel de calligraphe",
+        "qty" : "1 kit",
+        "price" : 10,
+        "currency" : "po"
+    },
+    {
+        "id": "out9",
+        "name" : "Matériel de peintre",
+        "qty" : "1 kit",
+        "price" : 10,
+        "currency" : "po"
+    },
+    {
+        "id": "out10",
+        "name" : "Outils de bricoleur",
+        "qty" : "1 kit",
+        "price" : 50,
+        "currency" : "po"
+    },
+    {
+        "id": "out11",
+        "name" : "Outils de cartographe",
+        "qty" : "1 kit",
+        "price" : 15,
+        "currency" : "po"
+    },
+    {
+        "id": "out12",
+        "name" : "Outils de charpentier",
+        "qty" : "1 kit",
+        "price" : 8,
+        "currency" : "po"
+    },
+    {
+        "id": "out13",
+        "name" : "Outils de cordonnier",
+        "qty" : "1 kit",
+        "price" : 5,
+        "currency" : "po"
+    },
+    {
+        "id": "out14",
+        "name" : "Outils de forgeron",
+        "qty" : "1 kit",
+        "price" : 20,
+        "currency" : "po"
+    },
+    {
+        "id": "out15",
+        "name" : "Outils de joaillier",
+        "qty" : "1 kit",
+        "price" : 25,
+        "currency" : "po"
+    },
+    {
+        "id": "out16",
+        "name" : "Outils de maçon",
+        "qty" : "1 kit",
+        "price" : 10,
+        "currency" : "po"
+    },
+    {
+        "id": "out17",
+        "name" : "Outils de menuisier",
+        "qty" : "1 kit",
+        "price" : 1,
+        "currency" : "po"
+    },
+    {
+        "id": "out18",
+        "name" : "Outils de potier",
+        "qty" : "1 kit",
+        "price" : 10,
+        "currency" : "po"
+    },
+    {
+        "id": "out19",
+        "name" : "Outils de souffleur de verre",
+        "qty" : "1 kit",
+        "price" : 30,
+        "currency" : "po"
+    },
+    {
+        "id": "out20",
+        "name" : "Outils de tanneur",
+        "qty" : "1 kit",
+        "price" : 5,
+        "currency" : "po"
+    },
+    {
+        "id": "out21",
+        "name" : "Outils de tisserand",
+        "qty" : "1 kit",
+        "price" : 1,
+        "currency" : "po"
+    },
+    {
+        "id": "out22",
+        "name" : "Ustensiles de cuisinier",
+        "qty" : "1 kit",
+        "price" : 1,
+        "currency" : "po"
+    },
+    {
+        "id": "out23",
+        "name" : "Outils de voleur",
+        "qty" : "1 kit",
+        "price" : 25,
+        "currency" : "po"
     }
 ]

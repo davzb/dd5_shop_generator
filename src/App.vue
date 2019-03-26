@@ -12,21 +12,33 @@
         <section class="section hero is-light">
             <div class="container">
                 <div class="columns">
-                    <div class="column is-one-third">
+                    <div class="column is-two-third">
                         <div class="field">
                             <label><strong>{{ $t('shopSize') }}</strong></label>
                             <div class="control">
                                 <label class="radio">
-                                    <input type="radio" name="shopSize" data-size="sm" checked>
-                                    {{ $t('sm') }}
+                                    <input type="radio" name="shopSize" data-size="alim" checked>
+                                    {{ $t('alim') }}
                                 </label>
                                 <label class="radio">
-                                    <input type="radio" name="shopSize" data-size="md">
-                                    {{ $t('md') }}
+                                    <input type="radio" name="shopSize" data-size="gen">
+                                    {{ $t('gen') }}
                                 </label>
                                 <label class="radio">
-                                    <input type="radio" name="shopSize" data-size="lg">
-                                    {{ $t('lg') }}
+                                    <input type="radio" name="shopSize" data-size="blac">
+                                    {{ $t('blac') }}
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="shopSize" data-size="tav">
+                                    {{ $t('tav') }}
+                                </label>
+                                <label class="radio" disabled>
+                                    <input type="radio" name="shopSize" data-size="herb" disabled>
+                                    {{ $t('herb') }}
+                                </label>
+                                <label class="radio" disabled>
+                                    <input type="radio" name="shopSize" data-size="alch" disabled>
+                                    {{ $t('alch') }}
                                 </label>
                             </div>
                         </div>
@@ -34,15 +46,6 @@
                 </div>
 
                 <div class="columns">
-                    <div class="column is-one-third">
-                        <div class="field">
-                            <div class="control">
-                                <label><strong>{{ $t('lvl') }}</strong></label>
-                                <input class="input" type="number" :placeholder="$t('lvl')" value="1">
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="column is-one-third">
                         <div class="field">
                             <div class="control">
@@ -103,16 +106,22 @@ import $ from "jquery";
 import {_} from 'vue-underscore';
 import axios from "axios";
 import allArmes from "../public/armes.json";
+import allAmmo from "../public/munitions.json";
+import allArmor from "../public/armures.json";
 import allBabioles from "../public/babioles.json";
 import allEquipements from "../public/equipements.json";
 import allMarchandises from "../public/marchandises.json";
 import allOutils from "../public/outils.json";
+import allAlim from "../public/alimentation.json";
 
 var armes = [];
+var ammo = [];
+var armor = [];
 var babioles = [];
 var equipements = [];
 var marchandises = [];
 var outils = [];
+var alimentation = [];
 
 export default {
     name: "app",
@@ -125,10 +134,13 @@ export default {
     },
     beforeMount () {
         armes.push(allArmes);
+        ammo.push(allAmmo);
+        armor.push(allArmor);
         babioles.push(allBabioles);
         equipements.push(allEquipements);
         marchandises.push(allMarchandises);
         outils.push(allOutils);
+        alimentation.push(allAlim);
     },
     mounted () {
         const currentLang = $('html').attr('lang');
@@ -148,65 +160,73 @@ export default {
         randomizeMe () {
             let checkedShopSize = $('.radio input:checked').data('size');
             let giveMeItemsVal = $('#itemsNbValue').val();
-            let armesPercent, babiolesPercent, equipementsPercent, marchandisesPercent, outilsPercent;
-            let resultsArmes, resultsBabioles, resultsEquipements, resultsMarchandises, resultsOutils;
+            let armesPercent, ammoPercent, armorPercent, babiolesPercent, equipementsPercent, marchandisesPercent, outilsPercent, alimPercent;
+            let resultsArmes, resultsAmmo, resultsArmor, resultsBabioles, resultsEquipements, resultsMarchandises, resultsOutils, resultsAlim;
 
             switch (checkedShopSize) {
-                case 'sm' :
-                armesPercent = 0;
-                outilsPercent = 0;
-                babiolesPercent = Math.round(giveMeItemsVal * 0.2);
-                equipementsPercent = Math.round(giveMeItemsVal * 0.4);
-                marchandisesPercent = Math.floor(giveMeItemsVal * 0.4);
+                case 'alim' : 
+                marchandisesPercent = Math.floor(giveMeItemsVal * 1);
 
-                resultsBabioles = _.sample(babioles[0], babiolesPercent);
-                resultsEquipements = _.sample(equipements[0], equipementsPercent);
                 resultsMarchandises = _.sample(marchandises[0], marchandisesPercent);
 
-                this.$data.results = _.union(resultsBabioles, 
-                                  resultsEquipements, 
-                                  resultsMarchandises);
+                this.$data.results = resultsMarchandises;
                 this.$data.results = _.shuffle(this.$data.results);
                 break
 
-                case 'md' :
-                armesPercent = Math.round(giveMeItemsVal * 0.2);
+                case 'gen' : 
+                armesPercent = Math.round(giveMeItemsVal * 0.1);
+                ammoPercent = Math.round(giveMeItemsVal * 0.1);
                 outilsPercent = Math.round(giveMeItemsVal * 0.1);
-                babiolesPercent = Math.round(giveMeItemsVal * 0.1);
-                equipementsPercent = Math.round(giveMeItemsVal * 0.3);
-                marchandisesPercent = Math.floor(giveMeItemsVal * 0.4);
-
-                resultsArmes = _.sample(armes[0], armesPercent);
-                resultsOutils = _.sample(outils[0], outilsPercent);
-                resultsBabioles = _.sample(babioles[0], babiolesPercent);
-                resultsEquipements = _.sample(equipements[0], equipementsPercent);
-                resultsMarchandises = _.sample(marchandises[0], marchandisesPercent);
-
-                this.$data.results = _.union(resultsArmes, 
-                                  resultsOutils, 
-                                  resultsBabioles, 
-                                  resultsEquipements, 
-                                  resultsMarchandises);
-                this.$data.results = _.shuffle(this.$data.results);
-                break
-
-                case 'lg' :
-                armesPercent = Math.round(giveMeItemsVal * 0.3);
-                outilsPercent = Math.round(giveMeItemsVal * 0.2);
-                babiolesPercent = 0;
-                equipementsPercent = Math.round(giveMeItemsVal * 0.3);
+                equipementsPercent = Math.round(giveMeItemsVal * 0.5);
                 marchandisesPercent = Math.floor(giveMeItemsVal * 0.2);
 
                 resultsArmes = _.sample(armes[0], armesPercent);
+                resultsAmmo = _.sample(ammo[0], ammoPercent);
                 resultsOutils = _.sample(outils[0], outilsPercent);
                 resultsEquipements = _.sample(equipements[0], equipementsPercent);
                 resultsMarchandises = _.sample(marchandises[0], marchandisesPercent);
 
                 this.$data.results = _.union(resultsArmes, 
+                                  resultsAmmo, 
                                   resultsOutils, 
                                   resultsEquipements, 
                                   resultsMarchandises);
                 this.$data.results = _.shuffle(this.$data.results);
+                break
+
+                case 'blac' : 
+                armesPercent = Math.round(giveMeItemsVal * 0.4);
+                ammoPercent = Math.round(giveMeItemsVal * 0.3);
+                armorPercent = Math.round(giveMeItemsVal * 0.2);
+                outilsPercent = Math.round(giveMeItemsVal * 0.1);
+
+                resultsArmes = _.sample(armes[0], armesPercent);
+                resultsAmmo = _.sample(ammo[0], ammoPercent);
+                resultsArmor = _.sample(armor[0], armorPercent);
+                resultsOutils = _.sample(outils[0], outilsPercent);
+
+                this.$data.results = _.union(resultsArmes, 
+                                  resultsAmmo, 
+                                  resultsArmor, 
+                                  resultsOutils);
+                this.$data.results = _.shuffle(this.$data.results);
+                break
+
+                case 'tav' : 
+                alimPercent = Math.floor(giveMeItemsVal * 1);
+
+                resultsAlim = _.sample(alimentation[0], alimPercent);
+
+                this.$data.results = resultsAlim;
+                this.$data.results = _.shuffle(this.$data.results);
+                break
+
+                case 'herb' : 
+                console.log('not implemented yet');
+                break
+
+                case 'alch' : 
+                console.log('not implemented yet');
                 break
             }
         }
@@ -233,10 +253,12 @@ en:
     title: "White Bear Shop"
     descr: "Welcome traveler!<br>I am <strong>Wiggens Raulnor</strong>, you are in my humble shop, in exchange of gold you can buy:"
     shopSize: "Size of the shop"
-    sm: "Small"
-    md: "Medium"
-    lg: "Huge"
-    lvl: "Average Level"
+    alim: "Food merchant"
+    gen: "General goods"
+    blac: "Blacksmith"
+    herb: "Apothecary"
+    tav: "Tavern"
+    alch: "Alchemist"
     nbItems: "Number of items"
     submit: "Generate"
     colA: "Category"
@@ -249,10 +271,12 @@ fr:
     title: "La boutique de l'Ours Blanc"
     descr: "Bienvenue aventuriers !<br>Je suis <strong>Wiggens Raulnor</strong>, vous êtes dans ma modeste échoppe, contre votre or vous pouvez acheter :"
     shopSize: "Taille de la boutique"
-    sm: "Petite"
-    md: "Moyenne"
-    lg: "Enorme"
-    lvl: "Moyenne des niveaux"
+    alim: "Alimentation"
+    gen: "Généraliste"
+    blac: "Forgeron"
+    herb: "Apothicaire"
+    tav: "Taverne"
+    alch: "Alchimiste"
     nbItems: "Nombre d'articles"
     submit: "Générer"
     colA: "Catégorie"

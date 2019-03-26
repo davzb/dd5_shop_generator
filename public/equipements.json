@@ -19,5 +19,61 @@
         "qty" : "1",
         "price" : 5,
         "currency" : "po"
+    },
+    {
+        "id": "mar24",
+        "name" : "Bouteille vide (0.75 cl)",
+        "qty" : "6",
+        "price" : 12,
+        "currency" : "po"
+    },
+    {
+        "id": "mar25",
+        "name" : "Coffre",
+        "qty" : "1",
+        "price" : 5,
+        "currency" : "po"
+    },
+    {
+        "id": "mar26",
+        "name" : "Cruche / Pichet (3.5 l)",
+        "qty" : "2",
+        "price" : 4,
+        "currency" : "pc"
+    },
+    {
+        "id": "mar27",
+        "name" : "Fiole vide (100 ml)",
+        "qty" : "12",
+        "price" : 12,
+        "currency" : "po"
+    },
+    {
+        "id": "mar28",
+        "name" : "Flasque en peaux (0.5 l)",
+        "qty" : "2",
+        "price" : 6,
+        "currency" : "pc"
+    },
+    {
+        "id": "mar29",
+        "name" : "Outre (2 l)",
+        "qty" : "2",
+        "price" : 4,
+        "currency" : "pa"
+    },
+    {
+        "id": "mar30",
+        "name" : "Sac à dos en toile (15 kg  d'équipement)",
+        "qty" : "2",
+        "price" : 4,
+        "currency" : "po"
+    },
+    {
+        "id": "mar31",
+        "name" : "Sacoche (3 kg d'équipement)",
+        "qty" : "2",
+        "price" : 10,
+        "currency" : "pa"
     }
 ]

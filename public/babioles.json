@@ -40,5 +40,47 @@
         "qty" : "1",
         "price" : 10,
         "currency" : "pc"
+    },
+    {
+        "id": "bab7",
+        "name" : "Deux dés en os marqués d'un crâne sur la face qui devrait indiquer le 6",
+        "qty" : "1",
+        "price" : 10,
+        "currency" : "pc"
+    },
+    {
+        "id": "bab8",
+        "name" : "Une petite idole représentant une créature cauchemardesque qui provoque des rêves troublants quand vous dormez près d'elle",
+        "qty" : "1",
+        "price" : 0,
+        "currency" : "pc"
+    },
+    {
+        "id": "bab9",
+        "name" : "Un collier de corde où pendent quatre doigts elfiques momifiés",
+        "qty" : "1",
+        "price" : 15,
+        "currency" : "pa"
+    },
+    {
+        "id": "bab10",
+        "name" : "Un titre de propriété dans un royaume qui vous est inconnu",
+        "qty" : "1",
+        "price" : 500,
+        "currency" : "po"
+    },
+    {
+        "id": "bab11",
+        "name" : "Un bloc de 30 grammes d'un matériau inconnu",
+        "qty" : "1",
+        "price" : 10,
+        "currency" : "po"
+    },
+    {
+        "id": "bab12",
+        "name" : "Une petite poupée de tissu hérissée d'aiguilles",
+        "qty" : "1",
+        "price" : 500,
+        "currency" : "po"
     }
 ]
