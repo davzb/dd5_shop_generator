@@ -28,10 +28,6 @@
                                     <input type="radio" name="shopSize" data-size="blac">
                                     {{ $t('blac') }}
                                 </label>
-                                <label class="radio">
-                                    <input type="radio" name="shopSize" data-size="tav">
-                                    {{ $t('tav') }}
-                                </label>
                                 <label class="radio" disabled>
                                     <input type="radio" name="shopSize" data-size="herb" disabled>
                                     {{ $t('herb') }}
@@ -87,7 +83,13 @@
                     </thead>
                     <tbody>
                         <tr v-for="result in results" :key="result.id">
-                            <td>{{ result.id }}</td>
+                            <td v-if="result.id.substring(0, 3) === 'arm'" class="weapon">{{ result.id }}</td>
+                            <td v-if="result.id.substring(0, 3) === 'amm'" class="ammo">{{ result.id }}</td>
+                            <td v-if="result.id.substring(0, 3) === 'amr'" class="armor">{{ result.id }}</td>
+                            <td v-if="result.id.substring(0, 3) === 'out'" class="tool">{{ result.id }}</td>
+                            <td v-if="result.id.substring(0, 3) === 'mar'" class="goods">{{ result.id }}</td>
+                            <td v-if="result.id.substring(0, 3) === 'equ'" class="equipments">{{ result.id }}</td>
+
                             <td class="has-text-left">{{ result.name }}</td>
                             <td>{{ result.qty }}</td>
                             <td>{{ Math.floor(result.price * 0.6) }} {{ result.currency }}</td>
@@ -112,7 +114,6 @@ import allBabioles from "../public/babioles.json";
 import allEquipements from "../public/equipements.json";
 import allMarchandises from "../public/marchandises.json";
 import allOutils from "../public/outils.json";
-import allAlim from "../public/alimentation.json";
 
 var armes = [];
 var ammo = [];
@@ -121,7 +122,6 @@ var babioles = [];
 var equipements = [];
 var marchandises = [];
 var outils = [];
-var alimentation = [];
 
 export default {
     name: "app",
@@ -140,7 +140,6 @@ export default {
         equipements.push(allEquipements);
         marchandises.push(allMarchandises);
         outils.push(allOutils);
-        alimentation.push(allAlim);
     },
     mounted () {
         const currentLang = $('html').attr('lang');
@@ -160,8 +159,8 @@ export default {
         randomizeMe () {
             let checkedShopSize = $('.radio input:checked').data('size');
             let giveMeItemsVal = $('#itemsNbValue').val();
-            let armesPercent, ammoPercent, armorPercent, babiolesPercent, equipementsPercent, marchandisesPercent, outilsPercent, alimPercent;
-            let resultsArmes, resultsAmmo, resultsArmor, resultsBabioles, resultsEquipements, resultsMarchandises, resultsOutils, resultsAlim;
+            let armesPercent, ammoPercent, armorPercent, babiolesPercent, equipementsPercent, marchandisesPercent, outilsPercent;
+            let resultsArmes, resultsAmmo, resultsArmor, resultsBabioles, resultsEquipements, resultsMarchandises, resultsOutils;
 
             switch (checkedShopSize) {
                 case 'alim' : 
@@ -212,15 +211,6 @@ export default {
                 this.$data.results = _.shuffle(this.$data.results);
                 break
 
-                case 'tav' : 
-                alimPercent = Math.floor(giveMeItemsVal * 1);
-
-                resultsAlim = _.sample(alimentation[0], alimPercent);
-
-                this.$data.results = resultsAlim;
-                this.$data.results = _.shuffle(this.$data.results);
-                break
-
                 case 'herb' : 
                 console.log('not implemented yet');
                 break
@@ -244,6 +234,15 @@ export default {
                 &.is-1 { width: 8.33333%; }
                 &.is-7 { width: 58.33333%; }
             }
+
+            td {
+                &.weapon { background: #345995; color: #ffffff; }
+                &.armor { background: #3da5d9; color: #ffffff; }
+                &.ammo { background: #eac435; color: #ffffff; }
+                &.tool { background: #03cea4; color: #ffffff; }
+                &.goods { background: #ea7317; color: #ffffff; }
+                &.equipments { background: #b9314f; color: #ffffff; }
+            }
         }
     }
 </style>
@@ -257,7 +256,6 @@ en:
     gen: "General goods"
     blac: "Blacksmith"
     herb: "Apothecary"
-    tav: "Tavern"
     alch: "Alchemist"
     nbItems: "Number of items"
     submit: "Generate"
@@ -275,7 +273,6 @@ fr:
     gen: "Généraliste"
     blac: "Forgeron"
     herb: "Apothicaire"
-    tav: "Taverne"
     alch: "Alchimiste"
     nbItems: "Nombre d'articles"
     submit: "Générer"
